@@ -1,0 +1,1 @@
+const primsa = require('./prismaClient');
