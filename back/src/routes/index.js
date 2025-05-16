@@ -1,7 +1,7 @@
 const express = require('express');
-const router = express.Router();
+const index = express.Router();
 const { testarAPI } = require('../controllers/indexControler');
 
-router.get('/teste', testarAPI);
+index.get('/teste', testarAPI);
 
-module.exports = router;
+module.exports = index;
