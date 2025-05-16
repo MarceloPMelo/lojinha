@@ -3,26 +3,35 @@ GET http://localhost:4000/api/teste
 
 ###
 
-### Buscar todos os produtos
-POST  http://localhost:4000/api/register
+### CRUD de usuários
+GET  http://localhost:4000/api/register
 Content-Type: application/json
 
 {
-  "nome": "Marcelo",
-  "email": "mpedrosa.melo@gmail.com",
-  "senha": "123456",
+  "id" : 2,
+  "nome": "AngelO",
+  "email": "APIteste.melo@gmail.com",
+  "senha": "182",
   "dataNascimento": "1990-01-01",
   "genero": "Masculino"
 
 }
 
-###
+### Login e logout
 
-### Cadastrar um novo produto
-POST http://localhost:4000/api/products
+GET http://localhost:4000/auth/profile
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlhdCI6MTc0NzQyNTYzOCwiZXhwIjoxNzQ3NDI1Njk4fQ.7tMFyBswoaMoOVqp-SEtyvM-3mzi9onLfRu3-9tsh4A
 Content-Type: application/json
 
 {
-  "name": "Teclado",
-  "quantity": 15
+  "id" : 2
+}
+
+### Cadastrar um novo produto
+POST http://localhost:4000/auth/login
+Content-Type: application/json
+
+{
+  "email": "APIteste.melo@gmail.com",
+  "senha": "182"
 }

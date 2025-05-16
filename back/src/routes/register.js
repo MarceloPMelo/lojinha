@@ -1,8 +1,11 @@
 const express = require('express');
-const register = express.Router();
-const { registrarUsuario } = require('../controllers/registerController');
+const router = express.Router();
+const { registrarUsuario, getUser, editUser, deleteUser } = require('../controllers/registerController');
 
 
-register.post('/register', registrarUsuario);
+router.post('/register', registrarUsuario);
+router.get('/register', getUser)
+router.put('/register', editUser)
+router.delete('/register', deleteUser)
 
-module.exports = register;
+module.exports = router;
