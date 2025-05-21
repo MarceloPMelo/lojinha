@@ -1,35 +1,37 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { Button } from "./componets/button"
+import { CardProduct} from "./componets/product"
+import type { Product } from './componets/product'
+
 
 function App() {
-  const [count, setCount] = useState(0)
 
+  const products: Product[] = [
+    { id: 1, name: "Product 1", description: "This is product 1", price: 10 },
+    { id: 2, name: "Product 2", description: "This is product 2", price: 20 },
+    { id: 3, name: "Product 3", description: "This is product 3", price: 30 }
+  ]
+
+  const [carrinho, setCarrinho] = useState<string[]>([])
+  
+
+  function adicionar(product: string ) {
+    setCarrinho([...carrinho, product])
+    console.log(carrinho)
+  }
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div>
+      {products.map(product => {
+        return (
+          <div key={product.id} >
+            <CardProduct {...product} />
+            <Button label="Adicionar ao carrinho" onClick={() => adicionar(product.name)} />  
+          </div>
+        );
+      })}
+    </div>
+  );
+  
 }
 
 export default App
