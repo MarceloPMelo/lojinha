@@ -1,0 +1,5 @@
+.carrinho {
+    display: flex;
+    background-color: rgb(115, 132, 209);
+    width: 100vw
+}

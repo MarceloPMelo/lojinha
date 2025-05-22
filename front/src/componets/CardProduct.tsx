@@ -1,4 +1,4 @@
-import { Button } from "./button";
+import { Button } from "./Button";
 import "./CardProduct.css";
 
 export interface Product {
@@ -25,10 +25,10 @@ export function CardProduct({
   return (
     <div className="card">
       <h2>{title}</h2>
+      <img src={image} alt={title} className="card-img" />
+      <p>Price: ${price}</p>
       <p>{description}</p>
       <p>{category}</p>
-      <p>Price: ${price}</p>
-      <img src={image} alt={title} className="card-img" />
       <Button label="Adicionar ao carrinho" onClick={onAddToCart} />
     </div>
   );

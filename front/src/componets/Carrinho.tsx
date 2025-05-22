@@ -1,5 +1,6 @@
 // components/Carrinho.tsx
 import type { Product } from "./CardProduct"
+import "./Carrinho.css"
 
 type Props = {
   items: Product[]
@@ -7,7 +8,7 @@ type Props = {
 
 export function Carrinho({ items }: Props) {
   return (
-    <div>
+    <div className="carrinho">
       <h2>Carrinho</h2>
       {items.length === 0 ? (
         <p>Seu carrinho está vazio</p>

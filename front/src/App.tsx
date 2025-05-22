@@ -1,6 +1,6 @@
 import type { Product } from './componets/CardProduct'
 import { ProductList } from "./componets/ProductList"
-import { Carrinho } from "./componets/carrinho"
+import { Carrinho } from "./componets/Carrinho"
 
 //Hooks
 import { useCarrinho } from "./hooks/useCarrinho"
@@ -11,6 +11,9 @@ function App() {
 
   // Define the initial state for the products and the cart
   const [products, setProducts] = useState<Product[]>([])
+  const { carrinho, adicionar } = useCarrinho()
+
+  console.log('Carrinho modificado')
 
   useEffect(() => {
     // Fetch the products from the API
@@ -24,13 +27,10 @@ function App() {
       })
   }, [])
 
-
-  const { carrinho, adicionar } = useCarrinho()
-
   return (
     <div>
-      <ProductList products={products} onAdd={adicionar} />
       <Carrinho items={carrinho} />
+      <ProductList products={products} onAdd={adicionar} />
     </div>
   )
 
