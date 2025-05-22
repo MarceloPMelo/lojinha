@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Button } from "./componets/button"
-import { CardProduct} from "./componets/product"
+import { CardProduct } from "./componets/product"
 import type { Product } from './componets/product'
 
 
@@ -12,26 +12,44 @@ function App() {
     { id: 3, name: "Product 3", description: "This is product 3", price: 30 }
   ]
 
-  const [carrinho, setCarrinho] = useState<string[]>([])
-  
+  const [carrinho, setCarrinho] = useState<Product[]>([])
 
-  function adicionar(product: string ) {
+
+  function adicionar(product: Product) {
+    if (carrinho.some(p => p.id === product.id)) {
+      alert("Produto já adicionado ao carrinho")
+      return
+    }
     setCarrinho([...carrinho, product])
     console.log(carrinho)
   }
   return (
     <div>
-      {products.map(product => {
-        return (
-          <div key={product.id} >
-            <CardProduct {...product} />
-            <Button label="Adicionar ao carrinho" onClick={() => adicionar(product.name)} />  
-          </div>
-        );
-      })}
+      <div>
+        {products.map(product => {
+          return (
+            <div key={product.id} >
+              <CardProduct {...product} />
+              <Button label="Adicionar ao carrinho" onClick={() => adicionar(product)} />
+            </div>
+          );
+        })}
+      </div>
+      <div>
+        <h2>Carrinho</h2>
+        {carrinho.length === 0 ? (
+          <p>Seu carrinho está vazio</p>
+        ) : (
+          <ul>
+            {carrinho.map((item) => (
+              <li key={item.id}>{item.name}</li>
+            ))}
+          </ul>
+        )}
+      </div>
     </div>
   );
-  
+
 }
 
 export default App
