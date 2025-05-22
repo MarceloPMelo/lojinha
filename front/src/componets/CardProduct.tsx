@@ -1,5 +1,7 @@
 import { Button } from "./Button";
 import "./CardProduct.css";
+import './index.css'
+
 
 export interface Product {
   id: number;

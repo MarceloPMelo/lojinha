@@ -2,6 +2,8 @@
 import type { Product } from "./CardProduct"
 import "./Carrinho.css"
 
+import './index.css'
+
 type Props = {
   items: Product[]
 }

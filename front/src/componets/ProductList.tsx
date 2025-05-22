@@ -1,6 +1,8 @@
 import { CardProduct } from "./CardProduct";
 import type { Product } from "./CardProduct";
 import "./ProductList.css";
+import './index.css'
+
 
 type Props = {
   products: Product[];
