@@ -1,8 +1,5 @@
 import { CardProduct } from "./CardProduct";
 import type { Product } from "./CardProduct";
-import "./ProductList.css";
-import './index.css'
-
 
 type Props = {
   products: Product[];
@@ -11,7 +8,7 @@ type Props = {
 
 export function ProductList({ products, onAdd }: Props) {
   return (
-    <div className="product-grid">
+    <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
       {products.map((product) => (
         <CardProduct
           key={product.id}

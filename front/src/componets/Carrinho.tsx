@@ -1,8 +1,6 @@
 // components/Carrinho.tsx
 import type { Product } from "./CardProduct"
 
-import './index.css'
-
 // Interface que define as props do componente
 type Props = {
   items: Product[]     // Array de produtos no carrinho
