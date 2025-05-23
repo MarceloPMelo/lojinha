@@ -19,7 +19,7 @@ export function Header({ onOpenCart }: HeaderProps) {
           {/* Botão do carrinho com efeito hover */}
           <button 
             onClick={onOpenCart}
-            className="p-2 hover:bg-gray-700 rounded-full transition-colors"
+            className="p-2 bg-gray-700 hover:bg-gray-600 rounded-full transition-colors"
           >
             {/* Ícone do carrinho em SVG */}
             <svg 

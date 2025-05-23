@@ -14,14 +14,14 @@ export function Carrinho({ items, isOpen, onClose }: Props) {
       {/* Overlay escuro que aparece atrás do carrinho */}
       {isOpen && (
         <div 
-          className="fixed inset-0 bg-black bg-opacity-50 transition-opacity"
+          className="fixed inset-0 bg-black bg-opacity-50 transition-opacity z-40"
           onClick={onClose} // Fecha o carrinho ao clicar no overlay
         />
       )}
 
       {/* Drawer deslizante do carrinho */}
       <div className={`
-        fixed top-0 right-0 h-full w-96 max-w-full bg-white shadow-lg transform transition-transform duration-300 ease-in-out
+        fixed top-0 right-0 h-full w-96 max-w-full bg-white shadow-lg transform transition-transform duration-300 ease-in-out z-50
         ${isOpen ? 'translate-x-0' : 'translate-x-full'} // Controla a animação de entrada/saída
       `}>
         {/* Layout em coluna com altura total */}
@@ -54,7 +54,7 @@ export function Carrinho({ items, isOpen, onClose }: Props) {
                     <img 
                       src={item.image} 
                       alt={item.title} 
-                      className="w-16 h-16 object-cover rounded"
+                      className="w-16 h-16 object-contain rounded bg-white"
                     />
                     {/* Informações do produto */}
                     <div className="flex-1">

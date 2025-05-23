@@ -40,15 +40,10 @@ function App() {
         onClose={() => setIsCartOpen(false)}
       />
 
-      {/* Container principal com largura máxima e padding responsivo */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <main className="py-8 flex flex-col items-center space-y-8">
-          <div className="w-full max-w-4xl">
-            {/* Lista de produtos com função para adicionar ao carrinho */}
-            <ProductList products={products} onAdd={adicionar} />
-          </div>
-        </main>
-      </div>
+      {/* Container principal */}
+      <main className="w-full px-4 py-8">
+        <ProductList products={products} onAdd={adicionar} />
+      </main>
     </div>
   )
 }
