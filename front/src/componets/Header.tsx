@@ -14,7 +14,7 @@ export function Header({ onOpenCart }: HeaderProps) {
         {/* Flex container para alinhar título e botão do carrinho */}
         <div className="flex justify-between items-center">
           {/* Título da aplicação */}
-          <h1 className="text-2xl font-bold">Estoque</h1>
+          <h1 className="text-2xl font-bold">Loja-Marcelo</h1>
           
           {/* Botão do carrinho com efeito hover */}
           <button 

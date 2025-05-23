@@ -29,7 +29,7 @@ function App() {
   }, []) // Array vazio significa que o efeito só roda uma vez na montagem
 
   return (
-    <div className="min-h-screen bg-gray-100">
+    <div className="min-h-screen bg-white" style={{width: '100vw'}}>
       {/* Header com função para abrir o carrinho */}
       <Header onOpenCart={() => setIsCartOpen(true)} />
 
