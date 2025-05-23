@@ -1,14 +1,16 @@
 // components/Carrinho.tsx
 import type { Product } from "./CardProduct"
+import { CardCarrinho } from "./CardCarrinho"
 
 // Interface que define as props do componente
 type Props = {
   items: Product[]     // Array de produtos no carrinho
   isOpen: boolean      // Estado de visibilidade do carrinho
   onClose: () => void // Função para fechar o carrinho
+  onRemove: (product: Product) => void
 }
 
-export function Carrinho({ items, isOpen, onClose }: Props) {
+export function Carrinho({ items, isOpen, onClose, onRemove}: Props) {
   return (
     <>
       {/* Overlay escuro que aparece atrás do carrinho */}
@@ -49,19 +51,7 @@ export function Carrinho({ items, isOpen, onClose }: Props) {
               // Lista de itens do carrinho
               <ul className="space-y-4">
                 {items.map(item => (
-                  <li key={item.id} className="flex items-center gap-4 p-2 border-b">
-                    {/* Imagem do produto */}
-                    <img 
-                      src={item.image} 
-                      alt={item.title} 
-                      className="w-16 h-16 object-contain rounded bg-white"
-                    />
-                    {/* Informações do produto */}
-                    <div className="flex-1">
-                      <h3 className="font-medium">{item.title}</h3>
-                      <p className="text-gray-600">${item.price}</p>
-                    </div>
-                  </li>
+                  <CardCarrinho key={item.id} item={item} onRemove={onRemove} />
                 ))}
               </ul>
             )}

@@ -13,5 +13,13 @@ export function useCarrinho() {
     setCarrinho([...carrinho, product])
   }
 
-  return { carrinho, adicionar }
+  function remover(product: Product) {
+    if (carrinho.some(p => p.id === product.id)) {
+      setCarrinho(carrinho.filter(p => p.id !== product.id))
+    } else {
+      alert("Produto não encontrado no carrinho")
+    }
+  }
+
+  return { carrinho, adicionar, remover }
 }

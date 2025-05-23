@@ -11,7 +11,7 @@ import { useState, useEffect } from 'react'
 function App() {
   // Estados da aplicação
   const [products, setProducts] = useState<Product[]>([]) // Lista de produtos da API
-  const { carrinho, adicionar } = useCarrinho() // Hook customizado para gerenciar o carrinho
+  const { carrinho, adicionar, remover } = useCarrinho() // Hook customizado para gerenciar o carrinho
   const [isCartOpen, setIsCartOpen] = useState(false) // Controla a visibilidade do carrinho
 
   console.log('Carrinho modificado')
@@ -38,6 +38,7 @@ function App() {
         items={carrinho} 
         isOpen={isCartOpen}
         onClose={() => setIsCartOpen(false)}
+        onRemove={remover}
       />
 
       {/* Container principal */}
