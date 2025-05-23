@@ -6,7 +6,7 @@ import './index.css'
 export interface Product {
   id: number;
   title: string;
-  price: number; // <-- Corrija de GLfloat para number!
+  price: number; 
   description: string;
   category: string;
   image: string;
