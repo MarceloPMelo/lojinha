@@ -8,14 +8,15 @@ type Props = {
   isOpen: boolean      // Estado de visibilidade do carrinho
   onClose: () => void // Função para fechar o carrinho
   onRemove: (product: Product) => void
+  onClear: () => void
 }
 
-export function Carrinho({ items, isOpen, onClose, onRemove}: Props) {
+export function Carrinho({ items, isOpen, onClose, onRemove, onClear }: Props) {
   return (
     <>
       {/* Overlay escuro que aparece atrás do carrinho */}
       {isOpen && (
-        <div 
+        <div
           className="fixed inset-0 bg-black bg-opacity-50 transition-opacity z-40"
           onClick={onClose} // Fecha o carrinho ao clicar no overlay
         />
@@ -32,7 +33,7 @@ export function Carrinho({ items, isOpen, onClose, onRemove}: Props) {
           <div className="flex justify-between items-center p-4 border-b">
             <h2 className="text-xl font-semibold">Carrinho</h2>
             {/* Botão de fechar */}
-            <button 
+            <button
               onClick={onClose}
               className="p-2 hover:bg-gray-100 rounded-full"
             >
@@ -68,7 +69,9 @@ export function Carrinho({ items, isOpen, onClose, onRemove}: Props) {
                 </span>
               </div>
               {/* Botão de finalizar compra */}
-              <button className="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700">
+              <button
+                onClick={onClear}
+                className="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700">
                 Finalizar Compra
               </button>
             </div>

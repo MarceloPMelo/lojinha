@@ -21,5 +21,9 @@ export function useCarrinho() {
     }
   }
 
-  return { carrinho, adicionar, remover }
+  function limparCarrinho() {
+    setCarrinho([])
+  }
+
+  return { carrinho, adicionar, remover, limparCarrinho }
 }
