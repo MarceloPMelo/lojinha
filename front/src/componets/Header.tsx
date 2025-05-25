@@ -1,5 +1,3 @@
-import { FaShoppingCart } from 'react-icons/fa'
-
 // Interface que define as props do componente
 type HeaderProps = {
   onOpenCart: () => void // Função para abrir o carrinho

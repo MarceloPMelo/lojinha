@@ -1,6 +1,8 @@
 // components/Carrinho.tsx
 import type { Product } from "./CardProduct"
 import { CardCarrinho } from "./CardCarrinho"
+import { toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 // Interface que define as props do componente
 type Props = {
@@ -12,6 +14,20 @@ type Props = {
 }
 
 export function Carrinho({ items, isOpen, onClose, onRemove, onClear }: Props) {
+  const handleFinalizarCompra = () => {
+    const total = items.reduce((total, item) => total + item.price, 0).toFixed(2)
+    onClear()
+    onClose()
+    toast.success(`Compra finalizada com sucesso! Total: $${total}`, {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+    })
+  }
+
   return (
     <>
       {/* Overlay escuro que aparece atrás do carrinho */}
@@ -70,8 +86,8 @@ export function Carrinho({ items, isOpen, onClose, onRemove, onClear }: Props) {
               </div>
               {/* Botão de finalizar compra */}
               <button
-                onClick={onClear}
-                className="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700">
+                onClick={handleFinalizarCompra}
+                className="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors">
                 Finalizar Compra
               </button>
             </div>

@@ -3,6 +3,8 @@ import type { Product } from './componets/CardProduct'
 import { ProductList } from "./componets/ProductList"
 import { Carrinho } from "./componets/Carrinho"
 import { Header } from "./componets/Header"
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 // Importação dos hooks do React e hooks customizados
 import { useCarrinho } from "./hooks/useCarrinho"
@@ -46,6 +48,9 @@ function App() {
       <main className="w-full px-4 py-8">
         <ProductList products={products} onAdd={adicionar} />
       </main>
+
+      {/* Container de notificações */}
+      <ToastContainer />
     </div>
   )
 }
