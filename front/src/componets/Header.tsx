@@ -1,18 +1,31 @@
+import { SearchInput } from './SearchInput'
+
 // Interface que define as props do componente
 type HeaderProps = {
   onOpenCart: () => void // Função para abrir o carrinho
+  onSearch: (term: string) => void // Função para filtrar produtos
+  searchTerm: string // Termo de busca atual
 }
 
-export function Header({ onOpenCart }: HeaderProps) {
+export function Header({ onOpenCart, onSearch, searchTerm }: HeaderProps) {
   return (
     // Header fixo no topo com fundo escuro e sombra
     <header className="bg-gray-800 text-white p-4 shadow-md">
       {/* Container com largura máxima e padding responsivo */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Flex container para alinhar título e botão do carrinho */}
-        <div className="flex justify-between items-center">
+        {/* Flex container para alinhar título, busca e botão do carrinho */}
+        <div className="flex justify-between items-center gap-4">
           {/* Título da aplicação */}
-          <h1 className="text-2xl font-bold">Loja-Marcelo</h1>
+          <h1 className="text-2xl font-bold whitespace-nowrap">Loja-Marcelo</h1>
+          
+          {/* Campo de busca */}
+          <div className="flex-1 max-w-xl">
+            <SearchInput
+              value={searchTerm}
+              onChange={onSearch}
+              placeholder="Buscar produtos..."
+            />
+          </div>
           
           {/* Botão do carrinho com efeito hover */}
           <button 

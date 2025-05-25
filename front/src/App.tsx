@@ -8,32 +8,26 @@ import 'react-toastify/dist/ReactToastify.css'
 
 // Importação dos hooks do React e hooks customizados
 import { useCarrinho } from "./hooks/useCarrinho"
-import { useState, useEffect } from 'react'
+import { useProducts } from './hooks/useProducts'
+import { useFilteredProducts } from './hooks/useFilteredProducts'
+import { useState } from 'react'
 
 function App() {
   // Estados da aplicação
-  const [products, setProducts] = useState<Product[]>([]) // Lista de produtos da API
+  const {products} = useProducts() // Lista de produtos da API
   const { carrinho, adicionar, remover, limparCarrinho } = useCarrinho() // Hook customizado para gerenciar o carrinho
   const [isCartOpen, setIsCartOpen] = useState(false) // Controla a visibilidade do carrinho
-
-  console.log('Carrinho modificado')
-
-  // Efeito para carregar os produtos da API quando o componente montar
-  useEffect(() => {
-    fetch('https://fakestoreapi.com/products')
-      .then(response => response.json())
-      .then(data => {
-        setProducts(data)
-      })
-      .catch(error => {
-        console.error('Error fetching products:', error)
-      })
-  }, []) // Array vazio significa que o efeito só roda uma vez na montagem
+  const { filteredProducts, searchTerm, setSearchTerm } = useFilteredProducts(products)
+  
 
   return (
     <div className="min-h-screen bg-white" style={{width: '100vw'}}>
-      {/* Header com função para abrir o carrinho */}
-      <Header onOpenCart={() => setIsCartOpen(true)} />
+      {/* Header com função para abrir o carrinho e buscar produtos */}
+      <Header 
+        onOpenCart={() => setIsCartOpen(true)} 
+        onSearch={setSearchTerm}
+        searchTerm={searchTerm}
+      />
 
       {/* Componente do carrinho com estado de visibilidade e função para fechar */}
       <Carrinho 
@@ -46,7 +40,13 @@ function App() {
 
       {/* Container principal */}
       <main className="w-full px-4 py-8">
-        <ProductList products={products} onAdd={adicionar} />
+        {filteredProducts.length === 0 ? (
+          <p className="text-center text-gray-500 mt-8">
+            Nenhum produto encontrado para "{searchTerm}"
+          </p>
+        ) : (
+          <ProductList products={filteredProducts} onAdd={adicionar} />
+        )}
       </main>
 
       {/* Container de notificações */}
