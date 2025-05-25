@@ -1,34 +1,57 @@
+// Importação dos componentes necessários
+import type { Product } from './componets/CardProduct'
+import { ProductList } from "./componets/ProductList"
+import { Carrinho } from "./componets/Carrinho"
+import { Header } from "./componets/Header"
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+
+// Importação dos hooks do React e hooks customizados
+import { useCarrinho } from "./hooks/useCarrinho"
+import { useProducts } from './hooks/useProducts'
+import { useFilteredProducts } from './hooks/useFilteredProducts'
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  // Estados da aplicação
+  const {products} = useProducts() // Lista de produtos da API
+  const { carrinho, adicionar, remover, limparCarrinho } = useCarrinho() // Hook customizado para gerenciar o carrinho
+  const [isCartOpen, setIsCartOpen] = useState(false) // Controla a visibilidade do carrinho
+  const { filteredProducts, searchTerm, setSearchTerm } = useFilteredProducts(products)
+  
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div className="min-h-screen bg-white" style={{width: '100vw'}}>
+      {/* Header com função para abrir o carrinho e buscar produtos */}
+      <Header 
+        onOpenCart={() => setIsCartOpen(true)} 
+        onSearch={setSearchTerm}
+        searchTerm={searchTerm}
+      />
+
+      {/* Componente do carrinho com estado de visibilidade e função para fechar */}
+      <Carrinho 
+        items={carrinho} 
+        isOpen={isCartOpen}
+        onClose={() => setIsCartOpen(false)}
+        onRemove={remover}
+        onClear={limparCarrinho}
+      />
+
+      {/* Container principal */}
+      <main className="w-full px-4 py-8">
+        {filteredProducts.length === 0 ? (
+          <p className="text-center text-gray-500 mt-8">
+            Nenhum produto encontrado para "{searchTerm}"
+          </p>
+        ) : (
+          <ProductList products={filteredProducts} onAdd={adicionar} />
+        )}
+      </main>
+
+      {/* Container de notificações */}
+      <ToastContainer />
+    </div>
   )
 }
 
