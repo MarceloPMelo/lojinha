@@ -1,7 +1,7 @@
 // Importação dos componentes necessários
-import { ProductList } from "./componets/ProductList"
-import { Carrinho } from "./componets/Carrinho"
-import { Header } from "./componets/Header"
+import { ProductList } from "./components/ProductList"
+import { Carrinho } from "../shared/components/Carrinho"
+import { Header } from "../shared/components/Header"
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 

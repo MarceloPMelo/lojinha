@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react'
-import type { Product } from '../componets/CardProduct'
+import type { Product } from '../components/CardProduct'
 
 export function useFilteredProducts(products: Product[]) {
   const [searchTerm, setSearchTerm] = useState('')

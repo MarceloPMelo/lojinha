@@ -1,12 +1,5 @@
 
-export interface Product {
-  id: number;
-  title: string;
-  price: number; 
-  description: string;
-  category: string;
-  image: string;
-}
+import type { Product } from "../../../types/Product";
 
 interface CardProductProps extends Product {
   onAddToCart: () => void;

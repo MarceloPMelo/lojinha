@@ -1,4 +1,4 @@
-import type { Product } from "./CardProduct"
+import type { Product } from "../../shared/CardProduct"
 
 
 interface Props {
