@@ -3,16 +3,34 @@ GET http://localhost:4000/api/teste
 
 ###
 
-### Buscar todos os produtos
-GET http://localhost:4000/api/products
+### CRUD de usuários
+PUT  http://localhost:4000/api/users
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTc0NzY2NTEwNSwiZXhwIjoxNzQ3NjY1MTY1fQ.DBgidmQSzqniFraG0HN8lETrzm1iYMVLBw-5IcvrB-U
+Content-Type: application/json
 
-###
 
-### Cadastrar um novo produto
-POST http://localhost:4000/api/products
+{
+  "nome": "Tecola",
+  "email": "teco@gmail.com",
+  "senha": "06",
+  "dataNascimento": "2005-06-03",
+  "genero": "Masculino"
+}
+
+
+### Login e logout
+
+POST http://localhost:4000/api/auth/login
 Content-Type: application/json
 
 {
-  "name": "Teclado",
-  "quantity": 15
+  "email": "teco@gmail.com",
+  "senha": "06"
 }
+
+### Acessar o perfil do usuário
+GET http://localhost:4000/api/auth/profile
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTc0NzY2NTEwNSwiZXhwIjoxNzQ3NjY1MTY1fQ.DBgidmQSzqniFraG0HN8lETrzm1iYMVLBw-5IcvrB-U
+
+
+

@@ -1,13 +1,18 @@
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
-const routes = require('./routes/index');
 const app = express();
-const primsa = require('./prismaClient');
+const user = require('./routes/userRoutes');
+const auth = require('./routes/authRoutes');
+
+
 
 app.use(cors());
 app.use(express.json());
-app.use('/api', routes);
+
+app.use('/api/users', user);
+app.use('/api/auth', auth);
+
 
 const PORT = process.env.PORT || 4000;
 
