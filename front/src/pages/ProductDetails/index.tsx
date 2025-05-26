@@ -1,9 +1,11 @@
 import { useParams } from 'react-router-dom'
 import { useProductDetails } from './hooks/useProductDetails'
+import { useCarrinho } from '../Home/hooks/useCarrinho'
 
 export function ProductDetails() {
   const { id } = useParams()
   const { product, loading, error } = useProductDetails(Number(id))
+  const {adicionar} = useCarrinho()
 
   if (loading) {
     return <div className="flex justify-center items-center min-h-screen">Carregando...</div>
@@ -15,6 +17,11 @@ export function ProductDetails() {
 
   if (!product) {
     return <div className="flex justify-center items-center min-h-screen">Produto não encontrado</div>
+  }
+
+  const handleAddToCart = () => {
+    adicionar(product)
+    alert('Produto adicionado ao carrinho!')
   }
 
   return (
@@ -37,7 +44,10 @@ export function ProductDetails() {
             <span className="text-gray-700">Categoria: </span>
             <span className="font-medium">{product.category}</span>
           </div>
-          <button className="bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors mt-4">
+          <button 
+            onClick={handleAddToCart}
+            className="bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors mt-4"
+          >
             Adicionar ao Carrinho
           </button>
         </div>
