@@ -3,11 +3,12 @@ import { SearchInput } from './SearchInput'
 // Interface que define as props do componente
 type HeaderProps = {
   onOpenCart: () => void // Função para abrir o carrinho
-  onSearch: (term: string) => void // Função para filtrar produtos
-  searchTerm: string // Termo de busca atual
+  onSearch?: (term: string) => void // Função para filtrar produtos (opcional)
+  searchTerm?: string // Termo de busca atual (opcional)
+  showSearch?: boolean // Controla se o campo de busca deve ser exibido
 }
 
-export function Header({ onOpenCart, onSearch, searchTerm }: HeaderProps) {
+export function Header({ onOpenCart, onSearch, searchTerm, showSearch = true }: HeaderProps) {
   return (
     // Header fixo no topo com fundo escuro e sombra
     <header className="bg-gray-800 text-white p-4 shadow-md">
@@ -19,13 +20,15 @@ export function Header({ onOpenCart, onSearch, searchTerm }: HeaderProps) {
           <h1 className="text-2xl font-bold whitespace-nowrap">Loja-Marcelo</h1>
           
           {/* Campo de busca */}
-          <div className="flex-1 max-w-xl">
-            <SearchInput
-              value={searchTerm}
-              onChange={onSearch}
-              placeholder="Buscar produtos..."
-            />
-          </div>
+          {showSearch && onSearch && searchTerm !== undefined && (
+            <div className="flex-1 max-w-xl">
+              <SearchInput
+                value={searchTerm}
+                onChange={onSearch}
+                placeholder="Buscar produtos..."
+              />
+            </div>
+          )}
           
           {/* Botão do carrinho com efeito hover */}
           <button 
