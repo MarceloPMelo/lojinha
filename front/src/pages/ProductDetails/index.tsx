@@ -7,8 +7,8 @@ import { useState } from 'react'
 import { toast, ToastContainer } from 'react-toastify'
 
 export function ProductDetails() {
-  const { id } = useParams()
-  const { product, loading, error } = useProductDetails(Number(id))
+  const { id } = useParams<{ id: string }>()
+  const { product, loading, error } = useProductDetails(id ? Number(id) : undefined)
   const { carrinho, adicionar, remover, limparCarrinho } = useCarrinho()
   const [isCartOpen, setIsCartOpen] = useState(false)
 
