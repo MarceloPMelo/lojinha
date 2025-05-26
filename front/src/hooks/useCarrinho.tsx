@@ -12,8 +12,14 @@ export function useCarrinho() {
   }, [])
 
   function adicionar(product: Product) {
-    setCarrinho([...carrinho, product])
-    storage.addToCart(product)
+    if (carrinho.some(p => p.id === product.id)) {
+      alert("Produto já está no carrinho")
+      return false
+    } else {
+      setCarrinho([...carrinho, product])
+      storage.addToCart(product)
+      return true
+    }
   }
 
   function remover(product: Product) {

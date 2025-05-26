@@ -4,6 +4,7 @@ import { useCarrinho } from '../../hooks/useCarrinho'
 import { Header } from "../../components/Header"
 import { Carrinho } from "../../components/Carrinho"
 import { useState } from 'react'
+import { toast, ToastContainer } from 'react-toastify'
 
 export function ProductDetails() {
   const { id } = useParams()
@@ -24,8 +25,17 @@ export function ProductDetails() {
   }
 
   const handleAddToCart = () => {
-    adicionar(product)
-    alert('Produto adicionado ao carrinho!')
+    if (adicionar(product)){
+      toast.success('Produto adicionado ao carrinho!', {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+      })
+      
+    }
   }
 
   return (
@@ -71,6 +81,8 @@ export function ProductDetails() {
           </div>
         </div>
       </div>
+      {/* Container de notificações */}
+      <ToastContainer />
     </div>
   )
 }

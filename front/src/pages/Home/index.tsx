@@ -2,7 +2,7 @@
 import { ProductList } from "../../components/ProductList"
 import { Carrinho } from "../../components/Carrinho"
 import { Header } from "../../components/Header"
-import { ToastContainer } from 'react-toastify'
+import { toast, ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
 // Importação dos hooks do React e hooks customizados
@@ -17,6 +17,7 @@ function App() {
   const { carrinho, adicionar, remover, limparCarrinho } = useCarrinho() // Hook customizado para gerenciar o carrinho
   const [isCartOpen, setIsCartOpen] = useState(false) // Controla a visibilidade do carrinho
   const { filteredProducts, searchTerm, setSearchTerm } = useFilteredProducts(products)
+
   
 
   return (

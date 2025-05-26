@@ -1,8 +1,9 @@
 import { Link } from 'react-router-dom';
 import type { Product } from "../types/Product";
+import { toast } from 'react-toastify';
 
 interface CardProductProps extends Product {
-  onAddToCart: () => void;
+  onAddToCart: () => boolean;
 }
 
 export function CardProduct({
@@ -14,6 +15,23 @@ export function CardProduct({
   image,
   onAddToCart
 }: CardProductProps) {
+
+  const handleAddToCart = () => {
+    if (onAddToCart()){
+      toast.success('Produto adicionado ao carrinho!', {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+      })
+      
+    }
+  }
+
+
+
   return (
     <div className="group bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden flex flex-col h-full">
       {/* Imagem com overlay no hover */}
@@ -54,7 +72,7 @@ export function CardProduct({
 
           {/* Botão de adicionar ao carrinho */}
           <button
-            onClick={onAddToCart}
+            onClick={handleAddToCart}
             className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg 
                      transition-colors duration-200 flex items-center justify-center gap-2"
           >

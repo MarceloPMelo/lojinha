@@ -3,7 +3,7 @@ import type { Product } from "../types/Product";
 
 type Props = {
   products: Product[];
-  onAdd: (product: Product) => void;
+  onAdd: (product: Product) => boolean;
 };
 
 export function ProductList({ products, onAdd }: Props) {
