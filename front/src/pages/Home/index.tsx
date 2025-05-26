@@ -2,7 +2,7 @@
 import { ProductList } from "../../components/ProductList"
 import { Carrinho } from "../../components/Carrinho"
 import { Header } from "../../components/Header"
-import { toast, ToastContainer } from 'react-toastify'
+import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
 // Importação dos hooks do React e hooks customizados
