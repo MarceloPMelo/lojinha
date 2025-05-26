@@ -1,4 +1,5 @@
 import { SearchInput } from './SearchInput'
+import { Link } from 'react-router-dom'
 
 // Interface que define as props do componente
 type HeaderProps = {
@@ -17,7 +18,9 @@ export function Header({ onOpenCart, onSearch, searchTerm, showSearch = true }: 
         {/* Flex container para alinhar título, busca e botão do carrinho */}
         <div className="flex justify-between items-center gap-4">
           {/* Título da aplicação */}
-          <h1 className="text-2xl font-bold whitespace-nowrap">Loja-Marcelo</h1>
+          <Link to="/" className="text-white hover:text-gray-300 transition-colors">
+            <h1 className="text-2xl font-bold whitespace-nowrap">Loja-Marcelo</h1>
+          </Link>
           
           {/* Campo de busca */}
           {showSearch && onSearch && searchTerm !== undefined && (
