@@ -1,11 +1,12 @@
-
-import type { Product } from "../../../types/Product";
+import { Link } from 'react-router-dom';
+import type { Product } from "../types/Product";
 
 interface CardProductProps extends Product {
   onAddToCart: () => void;
 }
 
 export function CardProduct({
+  id,
   title,
   description,
   category,
@@ -16,7 +17,7 @@ export function CardProduct({
   return (
     <div className="group bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden flex flex-col h-full">
       {/* Imagem com overlay no hover */}
-      <div className="relative aspect-square overflow-hidden bg-gray-100">
+      <Link to={`/product/${id}`} className="relative aspect-square overflow-hidden bg-gray-100">
         <img 
           src={image} 
           alt={title} 
@@ -26,14 +27,16 @@ export function CardProduct({
         <span className="absolute top-2 left-2 bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded-full">
           {category}
         </span>
-      </div>
+      </Link>
 
       {/* Conteúdo do card */}
       <div className="p-4 flex flex-col flex-grow">
         {/* Título do produto */}
-        <h2 className="text-lg font-semibold text-gray-800 line-clamp-2 min-h-[3.5rem]">
-          {title}
-        </h2>
+        <Link to={`/product/${id}`} className="hover:text-blue-600">
+          <h2 className="text-lg font-semibold text-gray-800 line-clamp-2 min-h-[3.5rem]">
+            {title}
+          </h2>
+        </Link>
 
         {/* Descrição */}
         <p className="mt-2 text-sm text-gray-600 line-clamp-2 flex-grow">

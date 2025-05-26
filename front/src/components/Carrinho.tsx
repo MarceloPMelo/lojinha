@@ -1,5 +1,5 @@
 // components/Carrinho.tsx
-import type { Product } from "../../../types/Product"
+import type { Product } from "../types/Product"
 import { CardCarrinho } from "./CardCarrinho"
 import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
