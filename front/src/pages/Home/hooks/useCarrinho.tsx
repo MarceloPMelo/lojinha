@@ -1,6 +1,6 @@
 // hooks/useCarrinho.ts
 import { useState } from "react"
-import type { Product } from "../components/CardProduct"
+import type { Product } from "../../../types/Product"
 
 export function useCarrinho() {
   const [carrinho, setCarrinho] = useState<Product[]>([])
