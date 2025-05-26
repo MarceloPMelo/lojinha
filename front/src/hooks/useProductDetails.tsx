@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import type { Product } from "../../../types/Product"
+import type { Product } from "../types/Product"
 
 export function useProductDetails(productId: number) {
   const [product, setProduct] = useState<Product | null>(null)

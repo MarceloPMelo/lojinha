@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react'
-import { Product } from '../types/Product'
+import type { Product } from '../types/Product'
 import { storage } from '../services/storage'
 
+// ESSE HOOK NAO ESTA SENDO USADO
 export function useCart() {
   const [cart, setCart] = useState<Product[]>([])
 

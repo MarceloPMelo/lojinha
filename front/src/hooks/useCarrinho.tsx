@@ -1,7 +1,7 @@
 // hooks/useCarrinho.ts
 import { useEffect, useState } from "react"
-import type { Product } from "../../../types/Product"
-import { storage } from "../../../services/storage"
+import type { Product } from "../types/Product"
+import { storage } from "../services/storage"
 
 export function useCarrinho() {
   const [carrinho, setCarrinho] = useState<Product[]>([])

@@ -1,14 +1,14 @@
 // Importação dos componentes necessários
-import { ProductList } from "./components/ProductList"
-import { Carrinho } from "../shared/components/Carrinho"
-import { Header } from "../shared/components/Header"
+import { ProductList } from "../../components/ProductList"
+import { Carrinho } from "../../components/Carrinho"
+import { Header } from "../../components/Header"
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
 // Importação dos hooks do React e hooks customizados
-import { useCarrinho } from "./hooks/useCarrinho"
-import { useProducts } from './hooks/useProducts'
-import { useFilteredProducts } from './hooks/useFilteredProducts'
+import { useCarrinho } from "../../hooks/useCarrinho"
+import { useProducts } from "../../hooks/useProducts"
+import { useFilteredProducts } from "../../hooks/useFilteredProducts"
 import { useState } from 'react'
 
 function App() {
