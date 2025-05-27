@@ -1,7 +1,7 @@
 import type { Product } from "../types/Product";
 
-const CART_KEY = '@estoque:cart';
-const PRODUCTS_KEY = '@estoque:products';
+const CART_KEY = '@lojinha:cart';
+const PRODUCTS_KEY = '@lojinha:products';
 
 export const storage = {
   // Carrinho
