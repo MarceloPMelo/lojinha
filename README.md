@@ -1,4 +1,4 @@
-# 🛍️ Sistema de Loja Virtual
+# 🛍️ Loja-Marcelo
 
 Sistema que simula loja virtual desenvolvido com tecnologias modernas.
 
@@ -9,7 +9,7 @@ Este projeto é uma aplicação web que oferece uma interface intuitiva que simu
 ## 📂 Estrutura do Projeto
 
 ```
-estoque/
+loja-marcelo/
 ├── front/                 # Frontend da aplicação
 │   ├── src/
 │   │   ├── components/   # Componentes React reutilizáveis
@@ -84,8 +84,6 @@ npm run preview  # Visualiza a build de produção
 - Animações suaves
 - Feedback visual de ações
 - Navegação intuitiva
-
-
 
 ## ✨ Autor
 
