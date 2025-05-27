@@ -1,4 +1,4 @@
-# 🛍️ Loja-Marcelo
+# 🛍️ Lojinha
 
 Sistema que simula loja virtual desenvolvido com tecnologias modernas.
 
@@ -9,7 +9,7 @@ Este projeto é uma aplicação web que oferece uma interface intuitiva que simu
 ## 📂 Estrutura do Projeto
 
 ```
-loja-marcelo/
+lojinha/
 ├── front/                 # Frontend da aplicação
 │   ├── src/
 │   │   ├── components/   # Componentes React reutilizáveis
@@ -49,7 +49,7 @@ loja-marcelo/
 1. Clone o repositório
 ```bash
 git clone [URL_DO_REPOSITÓRIO]
-cd estoque
+cd lojinha
 ```
 
 2. Instale e execute o frontend
