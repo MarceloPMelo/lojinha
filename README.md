@@ -80,7 +80,6 @@ npm run preview  # Visualiza a build de produção
 ## 📱 Recursos da Interface
 
 - Design responsivo para todas as telas
-- Temas claros e escuros
 - Animações suaves
 - Feedback visual de ações
 - Navegação intuitiva
