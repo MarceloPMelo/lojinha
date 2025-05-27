@@ -1,59 +1,95 @@
-# 🏋️‍♂️ Gerador Inteligente de Cronogramas de Treino
+# 🛍️ Sistema de Loja Virtual
 
-Este é um sistema web que utiliza Inteligência Artificial para gerar cronogramas de treinos personalizados com base em dados físicos, objetivos e preferências do usuário. Ideal para quem quer treinar de forma segura e eficiente.
+Sistema que simula loja virtual desenvolvido com tecnologias modernas.
 
-## 🚀 Funcionalidades
+## 🌟 Visão Geral
 
-- Cadastro e login de usuários
-- Registro de avaliações físicas detalhadas
-- Geração automática de cronogramas com ChatGPT
-- Armazenamento e visualização dos treinos por dia da semana
-- Visualização detalhada dos exercícios (musculação, aeróbico, funcional)
-- Estrutura backend com Express + Prisma
-- Possibilidade de geração de frontend por IA
+Este projeto é uma aplicação web que oferece uma interface intuitiva que simula vendas online. O sistema permite que os usuários naveguem por produtos, adicionem itens ao carrinho e finalizem compras.
 
-## ✅ Requisitos Funcionais
+## 📂 Estrutura do Projeto
 
-- **RF01** – Cadastro de usuário
-- **RF02** – Autenticação via e-mail e senha
-- **RF03** – Registro de avaliação física (altura, peso, lesões, etc.)
-- **RF04** – Geração de cronograma via IA (ChatGPT)
-- **RF05** – Armazenamento do cronograma no banco de dados
-- **RF06** – Visualização de treinos por dia da semana
-- **RF07** – Visualização detalhada de cada exercício
+```
+estoque/
+├── front/                 # Frontend da aplicação
+│   ├── src/
+│   │   ├── components/   # Componentes React reutilizáveis
+│   │   ├── hooks/       # Hooks customizados
+│   │   ├── pages/       # Páginas da aplicação
+│   │   ├── services/    # Serviços e integrações
+│   │   └── types/       # Definições de tipos TypeScript
+│   └── public/          # Arquivos estáticos
+```
 
-## 🚫 Requisitos Não Funcionais
+## ⭐ Funcionalidades Principais
 
-- **RNF01** – Armazenamento seguro de senhas com hashing
-- **RNF02** – Interface responsiva (desktop e mobile)
-- **RNF03** – API RESTful no backend
-- **RNF04** – Tolerância a falhas na API de IA
+### Frontend
+- 🎯 Catálogo de produtos com busca e filtros
+- 🛒 Carrinho de compras com persistência local
+- 📱 Interface responsiva e moderna
+- 🔍 Visualização detalhada de produtos
+- 📊 Feedback visual de ações do usuário
 
-## 👤 Histórias de Usuário
+## 🚀 Tecnologias Utilizadas
 
-- Como **usuário**, quero **criar minha conta**, para acessar meus treinos.
-- Como **usuário**, quero **fazer login**, para acessar meus dados com segurança.
-- Como **usuário**, quero **registrar minha avaliação física**, para gerar um cronograma adequado.
-- Como **usuário**, quero **receber um cronograma de treino personalizado**, com base em minhas metas.
-- Como **usuário**, quero **visualizar meus treinos por dia da semana**, para me organizar melhor.
-- Como **usuário**, quero **ver os detalhes dos exercícios do dia**, para saber como executar cada treino.
-- Como **usuário**, quero **atualizar minhas informações físicas**, caso meus objetivos mudem.
+### Frontend
+- React com TypeScript
+- Tailwind CSS para estilização
+- React Router para navegação
+- Vite como bundler
+- LocalStorage para persistência de dados
 
-## 🧱 Tecnologias e Ferramentas
+## 💻 Pré-requisitos
 
-- Node.js
-- Express.js
-- Prisma ORM
-- PostgreSQL (ou outro banco relacional)
-- OpenAI API (ChatGPT)
-- JWT para autenticação
-- IA auxiliar para geração de frontend (opcional)
+- Node.js (versão 14 ou superior)
+- npm ou yarn
+- Git
 
-## 📦 Instalação
+## 🛠️ Instalação e Execução
 
+1. Clone o repositório
 ```bash
-git clone https://github.com/seu-usuario/seu-repo.git
-cd seu-repo
+git clone [URL_DO_REPOSITÓRIO]
+cd estoque
+```
+
+2. Instale e execute o frontend
+```bash
+cd front
 npm install
-npx prisma migrate dev
 npm run dev
+```
+
+## 📝 Scripts Disponíveis
+
+### Frontend (`/front`)
+```bash
+npm run dev      # Inicia o servidor de desenvolvimento
+npm run build    # Gera build de produção
+npm run lint     # Executa o linter
+npm run preview  # Visualiza a build de produção
+```
+
+## 🔧 Configuração do Ambiente
+
+1. Frontend (porta 5173):
+   ```bash
+   cd front
+   cp .env.example .env
+   ```
+
+## 📱 Recursos da Interface
+
+- Design responsivo para todas as telas
+- Temas claros e escuros
+- Animações suaves
+- Feedback visual de ações
+- Navegação intuitiva
+
+
+
+## ✨ Autor
+
+**Marcelo Melo**
+
+---
+
